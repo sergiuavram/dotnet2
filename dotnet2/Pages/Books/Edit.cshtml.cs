@@ -36,6 +36,8 @@ namespace dotnet2.Pages.Books
                 return NotFound();
             }
             Book = book;
+            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
+
             return Page();
         }
 
