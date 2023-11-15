@@ -7,9 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using dotnet2.Data;
 using dotnet2.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace dotnet2.Pages.Books
+namespace dotnet2.Pages.Authors
 {
     public class DetailsModel : PageModel
     {
@@ -20,25 +19,24 @@ namespace dotnet2.Pages.Books
             _context = context;
         }
 
-      public Book Book { get; set; } = default!; 
+      public Author Author { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Book == null)
+            if (id == null || _context.Author == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
-            if (book == null)
+            var author = await _context.Author.FirstOrDefaultAsync(m => m.ID == id);
+            if (author == null)
             {
                 return NotFound();
             }
             else 
             {
-                Book = book;
+                Author = author;
             }
-            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID", "FirstName");
             return Page();
         }
     }

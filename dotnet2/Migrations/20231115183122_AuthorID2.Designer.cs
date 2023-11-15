@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using dotnet2.Data;
 
@@ -11,9 +12,10 @@ using dotnet2.Data;
 namespace dotnet2.Migrations
 {
     [DbContext(typeof(dotnet2Context))]
-    partial class dotnet2ContextModelSnapshot : ModelSnapshot
+    [Migration("20231115183122_AuthorID2")]
+    partial class AuthorID2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
