@@ -29,7 +29,7 @@ namespace dotnet2.Pages.Books
                 return NotFound();
             }
 
-            var book = await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
+            var book = await _context.Book.Include(x => x.Author).FirstOrDefaultAsync(m => m.ID == id);
 
             if (book == null)
             {
