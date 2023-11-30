@@ -19,7 +19,7 @@ namespace dotnet2.Pages.Borrowings
             _context = context;
         }
 
-      public Borrowing Borrowing { get; set; } = default!; 
+      public Borrowing Borrowing { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,15 +28,21 @@ namespace dotnet2.Pages.Borrowings
                 return NotFound();
             }
 
-            var borrowing = await _context.Borrowing.FirstOrDefaultAsync(m => m.ID == id);
+            var borrowing = await _context.Borrowing
+                .Include(b => b.Book)
+                    .ThenInclude(a => a.Author)
+                .Include(m => m.Member)
+                .FirstOrDefaultAsync(m => m.ID == id);
+
             if (borrowing == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Borrowing = borrowing;
             }
+
             return Page();
         }
     }
