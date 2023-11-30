@@ -22,6 +22,8 @@ namespace dotnet2.Models
 
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; } //navigation property
+        public int? BorrowingID { get; set; }
+        public Borrowing? Borrowing { get; set; }
         public ICollection<BookCategory>? BookCategories { get; set; }
     }
 }

@@ -58,7 +58,7 @@ namespace dotnet2.Pages.Books
     
 
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-    public async Task<IActionResult> OnPostAsync()
+    /* public async Task<IActionResult> OnPostAsync()
         {
           if (!ModelState.IsValid || _context.Book == null || Book == null)
             {
@@ -69,6 +69,6 @@ namespace dotnet2.Pages.Books
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
-        }
-    }
+        }*/
+    } 
 }
