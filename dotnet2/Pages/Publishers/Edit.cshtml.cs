@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using dotnet2.Data;
 using dotnet2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dotnet2.Pages.Publishers
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly dotnet2.Data.dotnet2Context _context;
